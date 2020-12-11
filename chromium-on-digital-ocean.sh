@@ -33,7 +33,7 @@ scp_cmd() {
 }
 
 
-droplet_id=$(doctl compute droplet create builder2 --ssh-keys $SSH_KEYS --image ubuntu-20-04-x64 --region lon1 --size $IMAGE_SIZE --format ID --no-header)
+droplet_id=$(doctl compute droplet create builder2 --ssh-keys $SSH_KEYS --image ubuntu-20-04-x64 --region lon1 --size $IMAGE_SIZE --format ID --no-header --volumes 780589de-3bc4-11eb-9953-0a58ac14c15f )
 
 echo "creating droplet $droplet_id"
 echo "waiting until droplet $droplet_id is reachable"
@@ -73,9 +73,10 @@ ssh_cmd root@${ipaddr} 'apt update; apt upgrade -y; apt install sudo;'
 
 # Use TMPFS users
 ssh_cmd root@${ipaddr} 'mount tmpfs -t tmpfs /home/'
-
 ssh_cmd root@${ipaddr} 'useradd -s /bin/bash -m user; echo "user  ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/user;'
 ssh_cmd root@${ipaddr} 'cp -rav .ssh /home/user/; chown -R /home/user/.ssh --reference /home/user;'
+
+ssh_cmd root@${ipaddr} 'mount /dev/sda /home/user'
 
 echo "Connect with user@${ipaddr}"
 
