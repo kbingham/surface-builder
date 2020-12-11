@@ -41,6 +41,7 @@ echo "waiting until droplet $droplet_id is reachable"
 cleanup() {
 	echo "destroying droplet $droplet_id"
 	doctl compute droplet delete $droplet_id --force
+	doctl compute droplet list
 }
 
 trap cleanup EXIT
