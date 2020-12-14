@@ -76,7 +76,7 @@ ssh_cmd root@${ipaddr} 'mount tmpfs -t tmpfs /home/'
 ssh_cmd root@${ipaddr} 'useradd -s /bin/bash -m user; echo "user  ALL=(ALL) NOPASSWD:ALL" > /etc/sudoers.d/user;'
 ssh_cmd root@${ipaddr} 'cp -rav .ssh /home/user/; chown -R /home/user/.ssh --reference /home/user;'
 
-ssh_cmd root@${ipaddr} 'mount /dev/sda /home/user'
+ssh_cmd root@${ipaddr} 'mount /dev/sda /home'
 
 echo "Connect with user@${ipaddr}"
 
