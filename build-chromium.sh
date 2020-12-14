@@ -17,7 +17,8 @@ echo "Installing dependencies (Assuming ubuntu 20.04)"
 echo "Chromium dependencies"
 sudo apt upgrade -y
 sudo apt install -y \
-       gnome-keyring libva-dev libdri2-dev mesa-common-dev python python2.7
+       gnome-keyring libva-dev libdri2-dev libx11-xcb-dev mesa-common-dev python python2.7
+
 
 echo "Building chromium"
 
