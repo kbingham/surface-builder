@@ -12,6 +12,8 @@ BRANCH=${JM_BRANCH}
 
 echo "Installing dependencies (Assuming ubuntu 20.04)"
 
+./build-libcamera.sh
+
 echo "Chromium dependencies"
 sudo apt install -y \
        gnome-keyring libva-dev libdri2-dev mesa-common-dev python python2.7
