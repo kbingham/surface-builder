@@ -9,8 +9,8 @@ sudo apt install -y \
 	libtiff-dev libevent-dev \
 	clang libc++-dev libc++abi-dev
 
-pip3 install --user meson
-pip3 install --user --upgrade meson
+sudo pip3 install meson
+sudo pip3 install --upgrade meson
 
 
 echo "Building libcamera"
@@ -18,7 +18,7 @@ echo "Building libcamera"
 build_libcamera() {
 	git clone https://github.com/libcamera-org/libcamera.git -b surface
 	cd libcamera
-	CC=clang CXX=clang++ meson build -Dpipelines=uvcvideo,ipu3 -Dprefix=/usr
+	CC=clang CXX=clang++ meson build -Dpipelines=uvcvideo,ipu3 -Dprefix=/usr -Dtest=false
 	ninja -C build
 	sudo ninja -C build install
 	sudo ldconfig
