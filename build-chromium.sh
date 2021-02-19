@@ -44,7 +44,7 @@ build_chromium() {
 	autoninja -C out/Default chrome
 
 	mkdir -p ~/results
-	tar czvf ~/results/chrome-build.tgz out/Default
+	tar czvf ~/results/chrome-build.tgz --exclude=out/Default/obj out/Default
 }
 
 time build_chromium
