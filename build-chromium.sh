@@ -29,7 +29,7 @@ build_chromium() {
 
 	git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git
 	export PATH="$PATH:${HOME}/depot_tools"
-	mkdir ~/chromium && cd ~/chromium
+	mkdir -p ~/chromium && cd ~/chromium
 	fetch --nohooks chromium
 	cd src
 	sudo ./build/install-build-deps.sh --unsupported
