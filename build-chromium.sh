@@ -38,7 +38,7 @@ build_chromium() {
 
 	git remote add github ${REPO}
 	git fetch github
-	git checkout -b surface github/${BRANCH}
+	git checkout -b ${BRANCH} github/${BRANCH}
 	gclient sync -D
 	
 	gn gen out/Default --args="is_debug=false is_component_build=true symbol_level=0 enable_nacl=false blink_symbol_level=0 use_gold=false use_sysroot=false is_clang=true clang_use_chrome_plugins=false use_lld=false is_clang=true use_custom_libcxx=true libcxx_abi_unstable=false use_gnome_keyring=false use_libcamera=true"
