@@ -30,7 +30,7 @@ build_chromium() {
 	export PATH="$PATH:${HOME}/depot_tools"
 	mkdir -p ~/chromium
 	cd ~/chromium
-	fetch --nohooks chromium
+	if [ ! -d src ] ; then fetch --nohooks chromium; fi;
 	cd src
 	sudo ./build/install-build-deps.sh --unsupported
 	gclient runhooks
