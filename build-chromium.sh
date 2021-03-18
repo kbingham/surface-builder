@@ -3,12 +3,11 @@
 REPO=https://github.com/libcamera-org/chromium.git
 BRANCH=surface
 
-
 JM_REPO=https://github.com/jhautbois/chromium
-JM_BRANCH=libcamera_t87.0.4280.67
+JM_BRANCH=libcamera_t87.0.4280.88
 
-REPO=${JM_REPO}
-BRANCH=${JM_BRANCH}
+#REPO=${JM_REPO}
+#BRANCH=${JM_BRANCH}
 
 echo "Installing dependencies (Assuming ubuntu 20.04)"
 
